@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -7,4 +7,50 @@
     android:layout_height="match_parent"
     tools:context=".BoardActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/top_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/mine_count_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Mines: 5"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/timer_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Time: 0"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/board_grid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/top_panel"
+        android:layout_above="@id/mode_button"
+        android:columnCount="10"
+        android:rowCount="10"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
+        android:padding="4dp"
+        android:layout_centerInParent="true">
+    </GridLayout>
+
+    <Button
+        android:id="@+id/mode_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Dig" />
+
+</RelativeLayout>
