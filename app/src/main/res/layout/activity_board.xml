@@ -7,10 +7,21 @@
     android:layout_height="match_parent"
     tools:context=".BoardActivity">
 
+    <TextView
+        android:id="@+id/name_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:text="CS 310 Andrew Park"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:id="@+id/top_panel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/name_label"
         android:orientation="horizontal"
         android:padding="10dp">
 
@@ -34,8 +45,8 @@
         android:id="@+id/board_grid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/top_panel"
         android:layout_above="@id/mode_button"
+        android:layout_below="@id/top_panel"
         android:columnCount="10"
         android:rowCount="10"
         android:alignmentMode="alignMargins"
