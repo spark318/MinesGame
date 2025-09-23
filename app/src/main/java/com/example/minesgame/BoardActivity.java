@@ -87,7 +87,9 @@ public class BoardActivity extends AppCompatActivity {
                 );
                 params.width = 0;
                 params.height = 0;
+                params.setMargins(2, 2, 2, 2);
                 button.setLayoutParams(params);
+                button.setBackgroundColor(Color.parseColor("#4CAF50")); // Green color
                 
                 final int finalR = r;
                 final int finalC = c;
