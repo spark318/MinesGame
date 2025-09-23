@@ -6,7 +6,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ResultActivity extends AppCompatActivity {
+public class GameResultActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class ResultActivity extends AppCompatActivity {
         resultText.setText(won ? "You Won!" : "You Lost!");
 
         playAgainButton.setOnClickListener(v -> {
-            Intent backToBoard = new Intent(ResultActivity.this, BoardActivity.class);
+            Intent backToBoard = new Intent(GameResultActivity.this, GameActivity.class);
             startActivity(backToBoard);
             finish();
         });

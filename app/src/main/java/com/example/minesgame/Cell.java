@@ -1,13 +1,13 @@
 package com.example.minesgame;
 
-public class MineCell {
+public class Cell {
 
     private boolean isMine;
     private boolean isRevealed;
     private boolean isFlagged;
     private int adjacentMines;
 
-    public MineCell() {
+    public Cell() {
         this.isMine = false;
         this.isRevealed = false;
         this.isFlagged = false;

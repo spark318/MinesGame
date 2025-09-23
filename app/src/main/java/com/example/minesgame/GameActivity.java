@@ -12,12 +12,12 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import java.util.Random;
 
-public class BoardActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity {
 
     private final int BOARD_SIZE = 10;
     private final int NUMBER_OF_MINES = 5;
 
-    private MineCell[][] board = new MineCell[BOARD_SIZE][BOARD_SIZE];
+    private Cell[][] board = new Cell[BOARD_SIZE][BOARD_SIZE];
     private Button[][] cellButtons = new Button[BOARD_SIZE][BOARD_SIZE];
 
     private TextView mineCountText;
@@ -79,7 +79,7 @@ public class BoardActivity extends AppCompatActivity {
 
         for (int r = 0; r < BOARD_SIZE; r++) {
             for (int c = 0; c < BOARD_SIZE; c++) {
-                board[r][c] = new MineCell();
+                board[r][c] = new Cell();
                 Button button = new Button(this);
                 GridLayout.LayoutParams params = new GridLayout.LayoutParams(
                         GridLayout.spec(r, 1f),
@@ -104,7 +104,7 @@ public class BoardActivity extends AppCompatActivity {
     private void onCellClick(int r, int c) {
         if (isGameOver) {
             long timeUsed = (System.currentTimeMillis() - startTime) / 1000;
-            Intent intent = new Intent(BoardActivity.this, ResultActivity.class);
+            Intent intent = new Intent(GameActivity.this, GameResultActivity.class);
             intent.putExtra("won", isGameWon);
             intent.putExtra("time", timeUsed);
             startActivity(intent);
@@ -165,7 +165,7 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     private void revealCell(int r, int c) {
-        MineCell cell = board[r][c];
+        Cell cell = board[r][c];
         if (cell.isRevealed() || cell.isFlagged()) {
             return;
         }
@@ -191,7 +191,7 @@ public class BoardActivity extends AppCompatActivity {
     }
 
     private void toggleFlag(int r, int c) {
-        MineCell cell = board[r][c];
+        Cell cell = board[r][c];
         if (cell.isRevealed()) {
             return;
         }
@@ -228,7 +228,7 @@ public class BoardActivity extends AppCompatActivity {
     private void updateBoardUI() {
         for (int r = 0; r < BOARD_SIZE; r++) {
             for (int c = 0; c < BOARD_SIZE; c++) {
-                MineCell cell = board[r][c];
+                Cell cell = board[r][c];
                 Button button = cellButtons[r][c];
 
                 if (cell.isRevealed()) {
@@ -271,4 +271,4 @@ public class BoardActivity extends AppCompatActivity {
 
         Toast.makeText(this, won ? "You won! Click any cell to see results." : "You lost! Click any cell to see results.", Toast.LENGTH_LONG).show();
     }
-}
+} 

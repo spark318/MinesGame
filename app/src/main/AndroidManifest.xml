@@ -12,19 +12,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MinesGame">
         <activity
-            android:name=".ResultActivity"
+            android:name=".GameResultActivity"
             android:exported="false" />
         <activity
-            android:name=".BoardActivity"
+            android:name=".GameActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ScreenActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="false">
