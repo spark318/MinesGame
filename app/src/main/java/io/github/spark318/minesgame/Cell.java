@@ -1,24 +1,23 @@
-package com.example.minesgame;
+package io.github.spark318.minesgame;
 
-public class Cell {
+import java.io.Serializable;
+
+/**
+ * A single square on the board. Setters are package-private so only {@link MinesweeperGame}
+ * can change a cell; the UI reads cells but never modifies them.
+ */
+public class Cell implements Serializable {
 
     private boolean isMine;
     private boolean isRevealed;
     private boolean isFlagged;
     private int adjacentMines;
 
-    public Cell() {
-        this.isMine = false;
-        this.isRevealed = false;
-        this.isFlagged = false;
-        this.adjacentMines = 0;
-    }
-
     public boolean isMine() {
         return isMine;
     }
 
-    public void setMine(boolean mine) {
+    void setMine(boolean mine) {
         isMine = mine;
     }
 
@@ -26,7 +25,7 @@ public class Cell {
         return isRevealed;
     }
 
-    public void setRevealed(boolean revealed) {
+    void setRevealed(boolean revealed) {
         isRevealed = revealed;
     }
 
@@ -34,7 +33,7 @@ public class Cell {
         return isFlagged;
     }
 
-    public void setFlagged(boolean flagged) {
+    void setFlagged(boolean flagged) {
         isFlagged = flagged;
     }
 
@@ -42,7 +41,7 @@ public class Cell {
         return adjacentMines;
     }
 
-    public void setAdjacentMines(int adjacentMines) {
+    void setAdjacentMines(int adjacentMines) {
         this.adjacentMines = adjacentMines;
     }
-} 
+}

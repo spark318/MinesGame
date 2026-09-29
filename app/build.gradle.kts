@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.minesgame"
+    namespace = "io.github.spark318.minesgame"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.minesgame"
+        applicationId = "io.github.spark318.minesgame"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

@@ -1,64 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- The outer frame absorbs system bar insets so the inner layout keeps its own padding. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".GameActivity">
 
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
     <TextView
-        android:id="@+id/name_label"
+        android:id="@+id/title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:padding="10dp"
-        android:text="CS 310 Andrew Park"
-        android:textSize="20sp"
-        android:textStyle="bold" />
+        android:text="@string/app_name"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/top_panel"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/mine_count_text"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/name_label"
-        android:orientation="horizontal"
-        android:padding="10dp">
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title_text"
+        tools:text="Mines: 12" />
 
-        <TextView
-            android:id="@+id/mine_count_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mines: 5"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/timer_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time: 0"
-            android:textSize="18sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/timer_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFeatureSettings="tnum"
+        android:textSize="18sp"
+        app:layout_constraintBaseline_toBaselineOf="@id/mine_count_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Time: 000" />
 
     <GridLayout
         android:id="@+id/board_grid"
-        android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:layout_below="@id/top_panel"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:alignmentMode="alignMargins"
-        android:columnCount="10"
-        android:padding="4dp"
-        android:rowCount="10" />
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="20dp"
+        app:layout_constraintBottom_toTopOf="@id/mode_button"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mine_count_text"
+        app:layout_constraintVertical_bias="0.3" />
 
     <Button
         android:id="@+id/mode_button"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_below="@id/board_grid"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Dig" />
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@id/hint_text"
+        app:layout_constraintTop_toBottomOf="@id/board_grid"
+        app:layout_constraintEnd_toStartOf="@id/restart_button"
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="Mode: Dig" />
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/restart_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/new_game"
+        app:layout_constraintBaseline_toBaselineOf="@id/mode_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toEndOf="@id/mode_button" />
+
+    <TextView
+        android:id="@+id/hint_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="@string/hint_long_press"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/mode_button" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

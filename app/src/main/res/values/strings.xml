@@ -1,3 +1,23 @@
 <resources>
-    <string name="app_name">CS310 Andrew Park</string>
+    <string name="app_name">Minesweeper</string>
+
+    <string name="mines_remaining">Mines: %1$d</string>
+    <string name="timer">Time: %1$03d</string>
+    <string name="mode_dig">Mode: Dig ⛏️</string>
+    <string name="mode_flag">Mode: Flag 🚩</string>
+    <string name="new_game">New game</string>
+    <string name="see_results">See results</string>
+    <string name="hint_long_press">Tip: long-press a cell to flag it in either mode</string>
+
+    <string name="cell_mine">💣</string>
+    <string name="cell_flag">🚩</string>
+
+    <string name="toast_won">You won! Tap the board to see results.</string>
+    <string name="toast_lost">Boom! Tap the board to see results.</string>
+
+    <string name="result_won">You Won!</string>
+    <string name="result_lost">You Lost!</string>
+    <string name="result_time">Time: %1$ds</string>
+    <string name="result_best_time">Best: %1$ds</string>
+    <string name="play_again">Play again</string>
 </resources>

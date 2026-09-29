@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+
+    <color name="cell_hidden">#FF4CAF50</color>
+    <color name="cell_revealed">#FFE0E0E0</color>
+    <color name="cell_mine">#FFE53935</color>
+
+    <!-- Classic Minesweeper number colors -->
+    <color name="number_1">#FF1565C0</color>
+    <color name="number_2">#FF2E7D32</color>
+    <color name="number_3">#FFC62828</color>
+    <color name="number_4">#FF283593</color>
+    <color name="number_5">#FF6D4C41</color>
+    <color name="number_6">#FF00838F</color>
+    <color name="number_7">#FF212121</color>
+    <color name="number_8">#FF757575</color>
 </resources>
